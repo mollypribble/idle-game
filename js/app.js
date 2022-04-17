@@ -61,14 +61,15 @@ document.addEventListener("DOMContentLoaded", function(){
 				this.yourPoints += (this.points * this.multi)
 				// Get new point value
 				this.points = getRandomInt(maxNow) + 1
+				console.log(this.yourPoints)
 			},
 			give() {
 				console.log("GIVE")
 				// Increment opponents
 				this.opponentsPoints += this.points
 				// Recalculate maxNow
-				maxNow = Math.floor(maxNow + (this.opponentsPoints/(this.yourPoints+this.opponentsPoints))*2)
-				this.multi = Math.floor(maxNow/10)
+				maxNow = maxNow + Math.floor((this.opponentsPoints/(this.yourPoints+this.opponentsPoints))*2)
+				this.multi = Math.floor(maxNow/10) + 1
 				console.log(maxNow)
 				console.log(this.multi)
 				// Get new point value
